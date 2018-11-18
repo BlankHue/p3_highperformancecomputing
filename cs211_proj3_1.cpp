@@ -13,7 +13,7 @@ int main(int argc, char*argv[])
     int elapsed_time;
     MPI_Init (&argc, &argv); // initiaslizes anything if necessary
     MPI_Barrier(MPI_COMM_WORLD);
-    elapsed_time = -MPI-Wtime();
+    elapsed_time = -MPI_Wtime();
     MPI_Comm_rank(MPI_COMM_WORLD, &id); // determines process rank
     MPI_Comm_size(MPI_COMM_WORLD, &p); //determins number of processes
    
