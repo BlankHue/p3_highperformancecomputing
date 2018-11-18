@@ -1,6 +1,7 @@
 #include <mpi.h>
 #include <math.h>
 #include <iostream>
+#include "stdio.h"
 #define MIN(a,b) ((a) < (b)) ? (a) : (b))
 
 //Modify the parallel Sieve of Aratosthenes program in class so that the program does NOT set aside memory for even integers.
