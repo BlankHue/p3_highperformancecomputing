@@ -8,10 +8,6 @@
 
 int main(int argc, char*argv[])
 {
-    int i;
-    int id; //process rnak
-    int p; //# of processes
-    void check_circuit (int, int);
 
     MPI_Init (&argc, &argv); // initiaslizes anything if necessary
     MPI_Barrier(MPI_COMM_WORLD);
