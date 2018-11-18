@@ -26,7 +26,7 @@ int main(int argc, char*argv[])
     long long int count;
     long long int global_count;
     long long int n;
-    int p = static_cast<int>(sqrt(atoi(argv[1]));
+    int p = static_cast<int>(sqrt(atoi(argv[1])));
     int elapsed_time;
     long long int size;
     long long int low_value;
