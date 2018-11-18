@@ -22,8 +22,11 @@ int main(int argc, char*argv[])
     long long int n;
     int p;
     int elapsed_time;
+    long long size;
     long long int low_value;
     long long int high_value;
+    char* marked;
+    long long int proc0_size;
     MPI_Init (&argc, &argv); // initiaslizes anything if necessary
     MPI_Barrier(MPI_COMM_WORLD);
     elapsed_time = -MPI_Wtime();
@@ -95,7 +98,7 @@ int main(int argc, char*argv[])
             while (marked[++index]);
             prime = index + 2;
         }
-        MPI_Bcast (&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
+        MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
     }   while (prime * prime <= n);
 
     count = 0;
