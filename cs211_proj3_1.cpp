@@ -4,6 +4,14 @@
 #include <cstdlib>
 #include "stdio.h"
 #define MIN(a,b) ((a) < (b)) ? (a) : (b))
+#define BLOCK_LOW(id,p,n) ((id)*(n)/(p))
+#define BLOCK_HIGH(id,p,n) \
+        ( BLOCK_LOW((id)+1,p,n)-1)
+#define BLOCK_SIZE(id,p,n) \ 
+        (BLOCK_LOW( (id)+1,p,n) - BLOCK_LOW((id),p,n))
+#define BLOCK_OWNER(index,p,n) \
+        ((((p) * (index) + 1) - 1) / (n))
+        
 
 //Modify the parallel Sieve of Aratosthenes program in class so that the program does NOT set aside memory for even integers.
 using namespace std;
@@ -14,6 +22,8 @@ int main(int argc, char*argv[])
     long long int n;
     int p;
     int elapsed_time;
+    long long int low_value;
+    long long int high_value;
     MPI_Init (&argc, &argv); // initiaslizes anything if necessary
     MPI_Barrier(MPI_COMM_WORLD);
     elapsed_time = -MPI_Wtime();
