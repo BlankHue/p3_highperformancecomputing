@@ -19,6 +19,12 @@ using namespace std;
 int main(int argc, char*argv[])
 {
     int id;
+    long long int i;
+    long long int index;
+    long long int prime;
+    long long int first;
+    long long int count;
+    long long int global_count;
     long long int n;
     int p;
     int elapsed_time;
