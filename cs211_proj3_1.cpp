@@ -19,7 +19,10 @@ int main(int argc, char*argv[])
    
     if (argc != 2)
     {
-        if(!id) printf ("Command line: %s <m>\n", argv[0]);
+        if(!id)
+        {
+            printf("Command line: %s <m>\n", argv[0]);
+        }
         MPI_Finalize(); 
         exit(1);
     }
