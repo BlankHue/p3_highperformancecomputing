@@ -7,7 +7,10 @@
 
 int main(int argc, char*argv[])
 {
-
+    long long int id;
+    long long int n;
+    long long int p;
+    int elapsed_time;
     MPI_Init (&argc, &argv); // initiaslizes anything if necessary
     MPI_Barrier(MPI_COMM_WORLD);
     elapsed_time = -MPI-Wtime();
