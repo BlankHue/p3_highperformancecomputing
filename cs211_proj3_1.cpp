@@ -22,7 +22,7 @@ int main(int argc, char*argv[])
     long long int n;
     int p;
     int elapsed_time;
-    long long size;
+    long long int size;
     long long int low_value;
     long long int high_value;
     char* marked;
