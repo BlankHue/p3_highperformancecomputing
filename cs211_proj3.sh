@@ -5,4 +5,4 @@
 #SBATCH -n 32
 #SBATCH -t 00:59:00
 
-./cs211_proj3_1 
+./cs211_proj3_1 100
