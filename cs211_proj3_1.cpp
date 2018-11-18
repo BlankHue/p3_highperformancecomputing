@@ -49,7 +49,7 @@ int main(int argc, char*argv[])
         exit(1);
     }
     
-    n = 1000000000;//atolli(argv[1]);
+    n = 10000000000;//atolli(argv[1]);
     cout << "argv[1] is: " << argv[1] << endl;
     cout << "p is: " << p << endl;
     low_value = 2 + BLOCK_LOW(id, p, n-1);
