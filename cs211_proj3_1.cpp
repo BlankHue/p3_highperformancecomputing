@@ -1,6 +1,6 @@
 #include <mpi.h>
 #include <math.h>
-#include <std.io>
+#include <iostream>
 #include "MyMPI.h"
 #define MIN(a,b) ((a) < (b)) ? (a) : (b))
 
