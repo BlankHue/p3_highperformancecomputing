@@ -1,7 +1,7 @@
 #include <mpi.h>
 #include <math.h>
 #include <iostream>
-#include "cstdlib.h"
+#include <cstdlib>
 #include "stdio.h"
 #define MIN(a,b) ((a) < (b)) ? (a) : (b))
 
