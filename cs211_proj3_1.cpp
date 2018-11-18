@@ -123,7 +123,7 @@ int main(int argc, char*argv[])
     elapsed_time += MPI_Wtime();
     if (!id)
     {
-        printf("%d primes are less than or equal to %d\n", global_count, n);
+        cout << global_count << " primes are less than or equal to " << n << endl;
         printf("Total elapsed time: %10.6f\n", elapsed_time);
     }
     MPI_Finalize();
