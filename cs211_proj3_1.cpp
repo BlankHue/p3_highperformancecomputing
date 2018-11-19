@@ -103,9 +103,9 @@ int main(int argc, char*argv[])
         for (i = first/2; i < size;i +=prime)
         {
                 marked[i] = 1;
-               if(i + prime % 2 != 0)
-               {i += prime;}
-               else{i += prime*2;}
+           //    if(i + prime % 2 != 0)
+           //    {i += prime;}
+           //    else{i += prime*2;}
         }
         if (!id)
         {
