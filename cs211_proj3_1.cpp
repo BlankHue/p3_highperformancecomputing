@@ -100,7 +100,7 @@ int main(int argc, char*argv[])
                 first = prime - (low_value % prime);
             }
         }
-        for (i = first; i < size;)
+        for (i = first; i < size; i += prime;)
         {
                 marked[i] = 1;
                 if(i + prime % 2 != 0)
@@ -116,7 +116,7 @@ int main(int argc, char*argv[])
     }   while (prime * prime <= n);
 
     count = 0;
-    for (i = 0; i < size; i++)
+    for (i = 0; i < size; i+=2)
     {
         if (!marked[i])
         {
