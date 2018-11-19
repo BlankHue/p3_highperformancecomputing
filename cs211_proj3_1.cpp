@@ -115,6 +115,10 @@ int main(int argc, char*argv[])
         {
             while (marked[++index]);
             prime = index+2;
+            if(prime % 2 == 0) //added 
+            {
+                    prime = prime +1;
+            }
         }
         MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
     }   while (prime * prime <= n);
