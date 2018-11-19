@@ -50,15 +50,15 @@ int main(int argc, char *argv[])
 
 	//NO OFFSET
 
-	uint64_t n = atoll(argv[1]);
+	long long int n = atoll(argv[1]);
 
-	uint64_t low_value = BLOCK_LOW(id, p, n);
+	long long int low_value = BLOCK_LOW(id, p, n);
 
-	uint64_t high_value = BLOCK_HIGH(id, p, n);
+	long long int high_value = BLOCK_HIGH(id, p, n);
 
-	uint64_t size = BLOCK_SIZE(id, p, n);
+	long long int size = BLOCK_SIZE(id, p, n);
 
-	uint64_t proc0_size = n / p;
+	 proc0_size = n / p;
 
 	if (proc0_size < sqrt(n)) {
 
@@ -74,7 +74,7 @@ int main(int argc, char *argv[])
 
 
 
-	uint8_t *marked = new uint8_t[size >> 1];
+	char *marked = new uint8_t[size >> 1];
 
 	if (marked == NULL) {
 
@@ -88,7 +88,7 @@ int main(int argc, char *argv[])
 
 
 
-	for (uint64_t i = 0; i < (size >> 1); i++)
+	for (long long int i = 0; i < (size >> 1); i++)
 
 		marked[i] = 0;
 
@@ -98,9 +98,9 @@ int main(int argc, char *argv[])
 
 	//First Prime starts at 3
 
-	uint64_t prime = 3;
+	long long int prime = 3;
 
-	uint64_t first;
+	long long int first;
 
 	while (prime * prime <= n) {
 
@@ -156,7 +156,7 @@ int main(int argc, char *argv[])
 
 
 
-	int count = 0;
+	long int count = 0;
 
 	for (uint64_t i = 0; i < (size >> 1); i++)
 
@@ -168,7 +168,7 @@ int main(int argc, char *argv[])
 
 
 
-	int global_count = 0;
+	long int global_count = 0;
 
 	MPI_Reduce(&count, &global_count, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
 
