@@ -51,14 +51,10 @@ int main(int argc, char *argv[])
 	//NO OFFSET
 
 	long long int n = atoll(argv[1]);
-
 	long long int low_value = BLOCK_LOW(id, p, n);
-
 	long long int high_value = BLOCK_HIGH(id, p, n);
-
 	long long int size = BLOCK_SIZE(id, p, n);
-
-	 proc0_size = n / p;
+	long long int proc0_size = n / p;
 
 	if (proc0_size < sqrt(n)) {
 
@@ -126,7 +122,7 @@ int main(int argc, char *argv[])
 
 		}
 
-		for (uint64_t i = first; i < size; i += (prime + prime))
+		for (long long int i = first; i < size; i += (prime + prime))
 
 			if (i & 1)//only if i is odd
 
@@ -134,7 +130,7 @@ int main(int argc, char *argv[])
 
 		if (id == 0) {
 
-			uint64_t next_Unmark = (prime >> 1) + 1;
+			long long int next_Unmark = (prime >> 1) + 1;
 
 			while ((marked[next_Unmark]) && (next_Unmark < (high_value >> 1))) {
 
@@ -158,7 +154,7 @@ int main(int argc, char *argv[])
 
 	long int count = 0;
 
-	for (uint64_t i = 0; i < (size >> 1); i++)
+	for (long long int i = 0; i < (size >> 1); i++)
 
 		if (!marked[i])
 
