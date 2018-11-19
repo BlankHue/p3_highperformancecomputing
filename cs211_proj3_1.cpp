@@ -59,7 +59,7 @@ int main(int argc, char*argv[])
     size = BLOCK_SIZE(id,p,n-1);
     proc0_size = (n-1)/p;
         
-    if((2 + proc0_size) < (int) sqrt((double) (n*2)))
+    if((2 + proc0_size) < (int) sqrt((double) (n)))
     {
         if (!id) printf ("Too many processes\n");
         MPI_Finalize();
