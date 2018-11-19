@@ -117,11 +117,11 @@ int main(int argc, char*argv[])
         {
             while (marked[++index]);
             prime = index + 2;
-            cout << "prime: " << prime << endl;
             if(prime % 2 == 0) // added this if statement
             {
                prime += 1;
             }
+             cout << "prime: " << prime << endl;
         }
        // long int temp = 4 * 16;
      //   temp = temp * temp + 10;
