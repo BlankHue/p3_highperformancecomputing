@@ -88,7 +88,7 @@ int main(int argc, char*argv[])
     {
         if (prime*prime > low_value)
         {
-             first = (prime * prime - low_value) - 3; //had no -1 orginally
+             first = (prime * prime - low_value) - 3; //had no -31 orginally
              
         }
         else 
@@ -109,7 +109,7 @@ int main(int argc, char*argv[])
         if (!id)
         {
             while (marked[++index]);
-            prime = index + 2;
+            prime = index + 4; //was originally plus 2
         }
        // long int temp = 4 * 16;
      //   temp = temp * temp + 10;
