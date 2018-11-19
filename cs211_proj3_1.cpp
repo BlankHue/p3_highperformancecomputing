@@ -80,16 +80,12 @@ int main(int argc, char*argv[])
     {
         index = 0;
     }
-    prime = 3;
+    prime = 2;
     do 
     {
         if (prime*prime > low_value)
         {
              first = prime * prime - low_value;
-               if(first % 2 == 0)
-                {
-                   first = first + 1;
-                }
         }
         else 
         {
@@ -100,25 +96,16 @@ int main(int argc, char*argv[])
             else
             {
                 first = prime - (low_value % prime);
-                if(first % 2 == 0)
-                {
-                   first = first + 1;
-                }
-                
             }
         }
-        for (i = first; i < size; i += (prime*2) - 1)
+        for (i = first; i < size; i += prime)
         {
             marked[i] = 1;
         }
         if (!id)
         {
             while (marked[++index]);
-            prime = index+2;
-            if(prime % 2 == 0) //added 
-            {
-                    prime = prime +1;
-            }
+            prime = index + 2;
         }
         MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
     }   while (prime * prime <= n);
