@@ -82,7 +82,7 @@ int main(int argc, char*argv[])
     {
         index = 0;
     }
-    prime = 3; //prime was 2
+    prime = 2; //prime was 2
     do 
     {
         if (prime*prime > low_value)
@@ -110,7 +110,7 @@ int main(int argc, char*argv[])
         if (!id)
         {
             while (marked[++index]);
-            prime = index + 3; //adding 1 only
+            prime = index + 2; //adding 1 only
         }
         MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
     }   while (prime * prime <= n*2);
