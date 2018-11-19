@@ -83,7 +83,7 @@ int main(int argc, char*argv[])
     {
         index = 0;
     }
-    prime = 3; // prime used to be 2
+    prime = 2; // prime used to be 2
     do 
     {
         if (prime*prime > low_value)
@@ -101,7 +101,7 @@ int main(int argc, char*argv[])
                 first = prime - (low_value % prime);
             }
         }
-        for (i = (first/2); i < size; i += prime) //added first - 2 (orig. i = first)
+        for (i = (first); i < size; i += prime) //added first - 2 (orig. i = first)
         {
             marked[i] = 1;
         }
