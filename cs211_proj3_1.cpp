@@ -103,6 +103,7 @@ int main(int argc, char*argv[])
         for (i = first; i < size; i += prime)
         {
             marked[i] = 1;
+            cout << marked[i] << endl; //added marked[i]
         }
         if (!id)
         {
