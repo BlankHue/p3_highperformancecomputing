@@ -52,8 +52,8 @@ int main(int argc, char*argv[])
     n = 10000000000/2;//atolli(argv[1]);
     cout << "argv[1] is: " << argv[1] << endl;
     cout << "p is: " << p << endl;
-    low_value = 2 + BLOCK_LOW(id, p, n-1);
-    high_value = 2 + BLOCK_HIGH(id,p,n-1);
+    low_value = ((2 + BLOCK_LOW(id, p, n-1)) * 2) - 1;
+    high_value = ((2 + BLOCK_HIGH(id,p,n-1)) * 2) - 1;
     size = BLOCK_SIZE(id,p,n-1);
     proc0_size = (n-1)/p;
         
@@ -105,7 +105,7 @@ int main(int argc, char*argv[])
         if (!id)
         {
             while (marked[++index]);
-            prime = index + 1;
+            prime = index + 2;
         }
         MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
     }   while (prime * prime <= n);
