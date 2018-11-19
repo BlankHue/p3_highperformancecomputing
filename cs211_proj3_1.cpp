@@ -100,12 +100,12 @@ int main(int argc, char*argv[])
                 first = prime - (low_value % prime);
             }
         }
-        for (i = first/2; i < size;)
+        for (i = first/2 + 1; i < size; +=prime)
         {
                 marked[i] = 1;
-                if(i + prime % 2 != 0)
-                {i += prime;}
-                else{i += prime*2;}
+            //    if(i + prime % 2 != 0)
+            //    {i += prime;}
+            //    else{i += prime*2;}
         }
         if (!id)
         {
