@@ -88,15 +88,7 @@ int main(int argc, char*argv[])
     {
         if (prime*prime > low_value)
         {
-             if(id == 0) //added this if statement
-             {
-                     first = 3;
-             }
-             else
-             {
-                first = (prime * prime - low_value); //had no -1 orginally
-             }
-             
+                first = (prime * prime - low_value); //had no -1 orginall 
         }
         else 
         {
@@ -117,10 +109,6 @@ int main(int argc, char*argv[])
         {
             while (marked[++index]);
             prime = index + 2;
-            if(prime % 2 == 0) // added this if statement
-            {
-               prime += 1;
-            }
              cout << "prime: " << prime << endl;
         }
        // long int temp = 4 * 16;
