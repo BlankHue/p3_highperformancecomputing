@@ -82,7 +82,7 @@ int main(int argc, char*argv[])
     {
         index = 0;
     }
-    prime = 2; //prime was 2
+    prime = 3; //prime was 2
     do 
     {
         if (prime*prime > low_value)
