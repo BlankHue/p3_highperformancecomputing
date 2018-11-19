@@ -1,2 +1,2 @@
 cs211_proj3: 
-	mpic++ -o cs211_proj3_1 cs211_proj3_1.cpp
+	mpic++ -std=c++11 -o cs211_proj3_1 cs211_proj3_1.cpp
