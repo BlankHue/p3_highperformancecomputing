@@ -88,7 +88,7 @@ int main(int argc, char*argv[])
     {
         if (prime*prime > low_value)
         {
-             first = (prime * prime - low_value) - 2; //had no -1 orginally
+             first = (prime * prime - low_value) - 3; //had no -1 orginally
              
         }
         else 
