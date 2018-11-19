@@ -86,10 +86,10 @@ int main(int argc, char*argv[])
         if (prime*prime > low_value)
         {
              first = prime * prime - low_value;
-             if(first % 2 == 0)
-             {
-                first = first + 1;
-             }
+           //  if(first % 2 == 0)
+           //  {
+           //     first = first + 1;
+           //  }
         }
         else 
         {
@@ -102,7 +102,7 @@ int main(int argc, char*argv[])
                 first = prime - (low_value % prime);
             }
         }
-        for (i = first; i < size; i += (prime))
+        for (i = first; i < size; i += (prime*2) - 1)
         {
             marked[i] = 1;
         }
