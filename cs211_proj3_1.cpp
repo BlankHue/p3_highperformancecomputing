@@ -49,7 +49,7 @@ int main(int argc, char*argv[])
         exit(1);
     }
     
-    n = 10000000000;//atolli(argv[1]);
+    n = 10000000000/2;//atolli(argv[1]);
     cout << "argv[1] is: " << argv[1] << endl;
     cout << "p is: " << p << endl;
     low_value = 2 + BLOCK_LOW(id, p, n-1);
@@ -80,7 +80,7 @@ int main(int argc, char*argv[])
     {
         index = 0;
     }
-    prime = 2;
+    prime = 3;
     do 
     {
         if (prime*prime > low_value)
@@ -105,7 +105,7 @@ int main(int argc, char*argv[])
         if (!id)
         {
             while (marked[++index]);
-            prime = index + 2;
+            prime = index + 1;
         }
         MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
     }   while (prime * prime <= n);
