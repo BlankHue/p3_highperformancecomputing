@@ -113,7 +113,7 @@ int main(int argc, char*argv[])
             prime = index + 2;
         }
         MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    }   while (prime * prime <= n);
+    }   while (prime * prime <= n*2);
 
     count = 0;
     for (i = 0; i < size; i++)
