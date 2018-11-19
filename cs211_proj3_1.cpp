@@ -49,7 +49,7 @@ int main(int argc, char*argv[])
         exit(1);
     }
     
-    n = 50;                //atolli(argv[1]);
+    n = 100;                //atolli(argv[1]);
     cout << "argv[1] is: " << argv[1] << endl;
     cout << "p is: " << p << endl;
     low_value = (2 + BLOCK_LOW(id, p, n-1)) * 2 - 1;
@@ -59,7 +59,7 @@ int main(int argc, char*argv[])
     size = BLOCK_SIZE(id,p,n-1);
     proc0_size = (n-1)/p;
         
-    if((2 + proc0_size) < (int) sqrt((double) n))
+    if((2 + proc0_size) < (int) sqrt((double) (n*2)))
     {
         if (!id) printf ("Too many processes\n");
         MPI_Finalize();
