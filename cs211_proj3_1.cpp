@@ -49,7 +49,7 @@ int main(int argc, char*argv[])
         exit(1);
     }
     
-    n = 10000000000;                //atolli(argv[1]);
+    n = 5000000000;                //atolli(argv[1]);
     cout << "argv[1] is: " << argv[1] << endl;
     cout << "p is: " << p << endl;
     low_value = (2 + BLOCK_LOW(id, p, n-1)) * 2 - 1;
@@ -100,7 +100,7 @@ int main(int argc, char*argv[])
                 first = prime - (low_value % prime);
             }
         }
-        for (i = first/2; i < size;i +=prime)
+        for (i = first; i < size;i +=prime)
         {
                 marked[i] = 1;
            //    if(i + prime % 2 != 0)
