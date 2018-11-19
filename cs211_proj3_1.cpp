@@ -83,12 +83,13 @@ int main(int argc, char*argv[])
     {
         index = 0;
     }
-    prime = 2;
+    prime = 3;
     do 
     {
         if (prime*prime > low_value)
         {
-             first = prime * prime - low_value;
+             first = (prime * prime - low_value) - 1; //had no -1 orginally
+             
         }
         else 
         {
