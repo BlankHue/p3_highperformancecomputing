@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
 
 
 
-	char *marked = new uint8_t[size >> 1];
+	char *marked = new char[size >> 1];
 
 	if (marked == NULL) {
 
