@@ -17,7 +17,7 @@
 #define BLOCK_OWNER(index,p,n) \
         ( ( ((p)*(index)+1)-1 ) / (n) )
 
-
+using namespace std;
 
 int main(int argc, char *argv[])
 
