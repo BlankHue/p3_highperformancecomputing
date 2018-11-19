@@ -4,6 +4,7 @@
 #include <cstring>
 #include <cstdint>
 #include <cstdlib>
+#include <iostream>
 #define MIN(a,b)  ((a)<(b)?(a):(b))
 
 #define BLOCK_LOW(id,p,n)  ((id)*(n)/(p))
@@ -175,8 +176,9 @@ int main(int argc, char *argv[])
 
 
 	if (id == 0) {
-
-		printf("The total number of prime: %d, total time: %10.6f, total node ", global_count, elapsed_time);
+		
+		cout << "The total number of primes is " << global_count << " and elapsed time is: " << elapsed_time << endl;
+//		printf("The total number of prime: %d, total time: %10.6f, total node ", global_count, elapsed_time);
 
 		//printf("%d primes are less than or equal to %llu\n",
 
