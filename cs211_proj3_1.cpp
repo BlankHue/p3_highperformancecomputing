@@ -52,8 +52,8 @@ int main(int argc, char*argv[])
     n = 100;//atolli(argv[1]);
     cout << "argv[1] is: " << argv[1] << endl;
     cout << "p is: " << p << endl;
-    low_value = 1 + BLOCK_LOW(id, p, n-1);
-    high_value = 1 + BLOCK_HIGH(id,p,n-1);
+    low_value = 3 + BLOCK_LOW(id, p, n-1);
+    high_value = 3 + BLOCK_HIGH(id,p,n-1);
     cout << "low_value: " << low_value << endl;
     cout << "high_value: " << high_value << endl;
     size = BLOCK_SIZE(id,p,n-1);
