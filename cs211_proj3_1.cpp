@@ -86,10 +86,10 @@ int main(int argc, char*argv[])
         if (prime*prime > low_value)
         {
              first = prime * prime - low_value;
-           //  if(first % 2 == 0)
-           //  {
-           //     first = first + 1;
-           //  }
+               if(first % 2 == 0)
+                {
+                   first = first + 1;
+                }
         }
         else 
         {
