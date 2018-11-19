@@ -4,4 +4,4 @@
 #SBATCH -N 1
 #SBATCH -t 00:59:00
 
-mpirun -np 10 ./cs211_proj3_1 100000
+mpirun -np 32 ./cs211_proj3_1 100000
