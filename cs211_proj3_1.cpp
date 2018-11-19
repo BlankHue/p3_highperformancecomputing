@@ -116,7 +116,7 @@ int main(int argc, char*argv[])
     }   while (prime * prime <= n);
 
     count = 0;
-    for (i = 0; i < size; i+=2)
+    for (i = 0; i < size; i++)
     {
         if (!marked[i])
         {
