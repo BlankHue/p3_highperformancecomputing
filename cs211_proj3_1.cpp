@@ -49,17 +49,15 @@ int main(int argc, char*argv[])
         exit(1);
     }
     
-    n = 5000000000;                //atolli(argv[1]);
-   // cout << "argv[1] is: " << argv[1] << endl;
-  //  cout << "p is: " << p << endl;
-    low_value = (2 + BLOCK_LOW(id, p, n-1)) * 2 - 1;
-    high_value = (2 + BLOCK_HIGH(id,p,n-1)) * 2;
-  //  cout << "low_value: " << low_value << endl;
-  //  cout << "high_value: " << high_value << endl;
+    n = 10000000000/2;//atolli(argv[1]);
+    cout << "argv[1] is: " << argv[1] << endl;
+    cout << "p is: " << p << endl;
+    low_value = 2 + BLOCK_LOW(id, p, n-1);
+    high_value = 2 + BLOCK_HIGH(id,p,n-1);
     size = BLOCK_SIZE(id,p,n-1);
     proc0_size = (n-1)/p;
         
-    if((2 + proc0_size) < (int) sqrt((double) (n)))
+    if((2 + proc0_size) < (int) sqrt((double) n))
     {
         if (!id) printf ("Too many processes\n");
         MPI_Finalize();
@@ -82,12 +80,12 @@ int main(int argc, char*argv[])
     {
         index = 0;
     }
-    prime = 2; //prime was 2
+    prime = 2;
     do 
     {
         if (prime*prime > low_value)
         {
-             first = (prime * prime - low_value); //subtracted 1
+             first = prime * prime - low_value;
         }
         else 
         {
@@ -100,20 +98,17 @@ int main(int argc, char*argv[])
                 first = prime - (low_value % prime);
             }
         }
-        for (i = first; i < size;i +=prime)
+        for (i = first; i < size; i += prime)
         {
-                marked[i] = 1;
-           //    if(i + prime % 2 != 0)
-           //    {i += prime;}
-           //    else{i += prime*2;}
+            marked[i] = 1;
         }
         if (!id)
         {
             while (marked[++index]);
-            prime = index + 2; //adding 1 only
+            prime = index + 2;
         }
         MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    }   while (prime * prime <= n*2);
+    }   while (prime * prime <= n);
 
     count = 0;
     for (i = 0; i < size; i++)
@@ -128,8 +123,7 @@ int main(int argc, char*argv[])
     elapsed_time += MPI_Wtime();
     if (!id)
     {
-        cout << "455052511" << " primes are less than or equal to " << n*2 << endl;
-        //cout << global_count << " primes are less than or equal to " << n << endl;
+        cout << global_count << " primes are less than or equal to " << n << endl;
         printf("Total elapsed time: %10.6f\n", elapsed_time);
     }
     MPI_Finalize();
