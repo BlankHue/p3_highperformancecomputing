@@ -83,7 +83,7 @@ int main(int argc, char*argv[])
     {
         index = 0;
     }
-    prime = 3;
+    prime = 3; // prime used to be 2
     do 
     {
         if (prime*prime > low_value)
@@ -109,7 +109,7 @@ int main(int argc, char*argv[])
                 first = prime - (low_value % prime);
             }
         }
-        for (i = first; i < size; i += prime)
+        for (i = first - 2; i < size; i += prime) //added first - 2 (orig. i = first)
         {
             marked[i] = 1;
         }
@@ -117,12 +117,16 @@ int main(int argc, char*argv[])
         {
             while (marked[++index]);
             prime = index + 2;
+            if(prime % 2 == 0) // added this if statement
+            {
+               prime += 1;
+            }
         }
        // long int temp = 4 * 16;
      //   temp = temp * temp + 10;
     //        temp = temp * temp * 10;
        MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    }   while (prime * prime <= n); // used to be n
+    }   while (prime * prime <= n*2); // used to be n
 
     count = 0;
     for (i = 0; i < size; i++)
