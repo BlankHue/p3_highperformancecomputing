@@ -115,7 +115,7 @@ int main(int argc, char*argv[])
      //   temp = temp * temp + 10;
     //        temp = temp * temp * 10;
        MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    }   while (prime * prime <= n*2);
+    }   while (prime * prime <= high_value); // used to be n
 
     count = 0;
     for (i = 0; i < size; i++)
