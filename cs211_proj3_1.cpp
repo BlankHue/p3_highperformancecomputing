@@ -109,7 +109,7 @@ int main(int argc, char*argv[])
                 first = prime - (low_value % prime);
             }
         }
-        for (i = first - 2; i < size; i += prime) //added first - 2 (orig. i = first)
+        for (i = (first/2); i < size; i += prime) //added first - 2 (orig. i = first)
         {
             marked[i] = 1;
         }
