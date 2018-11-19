@@ -98,14 +98,14 @@ int main(int argc, char*argv[])
                 first = prime - (low_value % prime);
             }
         }
-        for (i = first; i < size; i += prime)
+        for (i = first; i < size; i += (2*prime))
         {
             marked[i] = 1;
         }
         if (!id)
         {
             while (marked[++index]);
-            prime = index + 1;
+            prime = index+2;
         }
         MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
     }   while (prime * prime <= n);
