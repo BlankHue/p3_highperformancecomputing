@@ -49,12 +49,15 @@ int main(int argc, char*argv[])
         exit(1);
     }
     
-    n = 10000000000/2;//atolli(argv[1]);
+    n = 100/2;//atolli(argv[1]);
  //   cout << "argv[1] is: " << argv[1] << endl;
  //   cout << "p is: " << p << endl;
-    low_value = 2 + BLOCK_LOW(id, p, n-1);
-    high_value = 2 + BLOCK_HIGH(id,p,n-1);
+    low_value = 3 + (BLOCK_LOW(id, p, n-1)*2);
+    high_value = 2 + (BLOCK_HIGH(id,p,n-1)*2);
     size = BLOCK_SIZE(id,p,n-1);
+    cout << "low_value: " << low_value << endl;
+    cout << "high_value: " << high_value << endl;
+    cout << "size: " << size << endl;
     proc0_size = (n-1)/p;
         
     if((2 + proc0_size) < (int) sqrt((double) n))
