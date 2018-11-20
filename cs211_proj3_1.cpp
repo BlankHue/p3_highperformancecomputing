@@ -52,8 +52,8 @@ int main(int argc, char*argv[])
     n = 200/2; 
  //   cout << "argv[1] is: " << argv[1] << endl;
  //   cout << "p is: " << p << endl;
-    low_value = 3 + (BLOCK_LOW(id, p, n-1)*2);
-    high_value = 3 + (BLOCK_HIGH(id,p,n-1)*2);
+    low_value = 3 + (BLOCK_LOW(id, p, n-1)); //had * 2 before
+    high_value = 3 + (BLOCK_HIGH(id,p,n-1)); //had * 2 before
     size = BLOCK_SIZE(id,p,n-1);
     cout << "low_value: " << low_value << endl;
     cout << "high_value: " << high_value << endl;
