@@ -88,7 +88,7 @@ int main(int argc, char*argv[])
     {
         if (prime*prime > low_value)
         {
-                first = ((prime * prime - low_value)-3); //had no -1 orginall 
+                first = (prime * prime - low_value); //had no -1 orginall 
         }
         else 
         {
@@ -101,7 +101,7 @@ int main(int argc, char*argv[])
                 first = prime - (low_value % prime);
             }
         }
-        for (i = (first/2); i < size; i += (prime/2)) //added first - 2 (orig. i = first)
+        for (i = (first); i < size; i += (prime) //added first - 2 (orig. i = first)
         {  
             marked[i] = 1;
         }
@@ -109,7 +109,7 @@ int main(int argc, char*argv[])
         {
             while (marked[++index]);
             prime = (index*2) + 3; //was just index + 2
-             cout << "prime: " << prime << endl;
+            cout << "prime: " << prime << endl;
         }
        // long int temp = 4 * 16;
      //   temp = temp * temp + 10;
