@@ -88,24 +88,24 @@ int main(int argc, char*argv[])
     {
         if (prime*prime > low_value)
         {
-                first = (prime * prime - low_value); //had no -1 orginall 
+                first = (prime * prime - (low_value*2+1)); //low-value wasn't properly indexed before
         }
         else 
         {
-            if (!(low_value % prime)) 
+            if (!((low_value*2+1) % prime)) 
             {
                 first = 0;
             }
             else
             {
-                first = prime - (low_value % prime);
+                first = prime - ((low_value*2+1) % prime);
             }
         }
-        for (i = 3; i < size; i += (prime/2)) //added first - 2 (orig. i = first)
+        for (i = first; i < size*2; i += prime) //added first - 2 (orig. i = first)
         {  
             if((i*2+1) % prime == 0)
             {
-                marked[i] = 1;
+                marked[i/2] = 1;
             }
         }
         if (!id)
