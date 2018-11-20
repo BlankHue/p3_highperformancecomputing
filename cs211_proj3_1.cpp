@@ -84,6 +84,7 @@ int main(int argc, char*argv[])
         index = 0;
     }
     prime = 3; // prime used to be 2
+    cout << prime << endl;
     do 
     {
         if (prime*prime > (low_value*2+1))
