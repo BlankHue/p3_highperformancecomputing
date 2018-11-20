@@ -86,7 +86,7 @@ int main(int argc, char*argv[])
     prime = 3; // prime used to be 2
     do 
     {
-        if (prime*prime > low_value)
+        if (prime*prime > (low_value*2+1))
         {
                 first = (prime * prime - (low_value*2+1)); //low-value wasn't properly indexed before
         }
