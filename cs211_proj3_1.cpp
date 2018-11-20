@@ -83,7 +83,7 @@ int main(int argc, char*argv[])
     {
         index = 0;
     }
-    prime = 2; // prime used to be 2
+    prime = 3; // prime used to be 2
     do 
     {
         if (prime*prime > low_value)
@@ -108,7 +108,7 @@ int main(int argc, char*argv[])
         if (!id)
         {
             while (marked[++index]);
-            prime = index + 2;
+            prime = (index*2) + 3; //was just index + 2
              cout << "prime: " << prime << endl;
         }
        // long int temp = 4 * 16;
