@@ -104,7 +104,7 @@ int main(int argc, char*argv[])
         }
         for (i = first; i < size; i += prime) //added first - 2 (orig. i = first)
         {  
-              if ((i*2+1) % prime == 0 )
+              if ((low_value + (i*2+1)) % prime == 0 )
              {
                 marked[i/2] = 1;
                 cout << "Marking: " << i << endl;
