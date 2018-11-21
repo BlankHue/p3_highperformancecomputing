@@ -78,6 +78,7 @@ int main(int argc, char*argv[])
     for (i = 0; i < size; i++)
     {
         marked[i] = 0;
+        cout << "Marking: " << i*2+1 << endl;
     }
     if(!id)
     {
