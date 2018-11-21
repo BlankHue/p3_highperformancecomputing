@@ -108,7 +108,7 @@ int main(int argc, char*argv[])
              {
                 marked[i/2] = 1;
                 cout << "Marking: " << i << endl;
-          //  }
+            }
         }
         if (!id)
         {
