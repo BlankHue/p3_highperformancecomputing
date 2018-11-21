@@ -78,7 +78,6 @@ int main(int argc, char*argv[])
     for (i = 0; i < size; i++)
     {
         marked[i] = 0;
-        cout << "Marking: " << i*2+1 << endl;
     }
     if(!id)
     {
@@ -105,9 +104,10 @@ int main(int argc, char*argv[])
         }
         for (i = first/2; i < size; i += prime/2) //added first - 2 (orig. i = first)
         {  
-            if (i*2+1 % prime == 0)
+            if ((low_value+(i*2+1)) % prime == 0)
             {
                 marked[i] = 1;
+                cout << "Marking: " << (low_value+(i*2+1)) << endl;
             }
         }
         if (!id)
