@@ -87,28 +87,28 @@ int main(int argc, char*argv[])
     //cout << prime << endl;
     do 
     {
-        if (prime*prime > (low_value*2+1))
+        if (prime*prime > low_value)
         {
-                first = (prime * prime - (low_value*2+1)); //low-value wasn't properly indexed before
+                first = (prime * prime - low_value); //low-value wasn't properly indexed before
         }
         else 
         {
-            if (!((low_value*2+1) % prime)) 
+            if (!((low_value) % prime)) 
             {
                 first = 0;
             }
             else
             {
-                first = prime - ((low_value*2+1) % prime);
+                first = prime - ((low_value) % prime);
             }
         }
-        for (i = first; i < size; i += prime) //added first - 2 (orig. i = first)
+        for (i = first/2; i < size; i += prime/2) //added first - 2 (orig. i = first)
         {  
-              if ((low_value + (i*2+1)) % prime == 0 )
-             {
+            //  if ((low_value + (i*2+1)) % prime == 0 )
+            // {
                 marked[i/2] = 1;
                 cout << "Marking: " << i << endl;
-            }
+          //  }
         }
         if (!id)
         {
