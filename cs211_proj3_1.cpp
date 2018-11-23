@@ -104,10 +104,7 @@ int main(int argc, char*argv[])
         }
         for (i = first/2; i < size; i += prime) //added first - 2 (orig. i = first)
         {  
-           if(i + low_value % prime == 0)
-            {
-                marked[i/2] = 1;
-            }
+                marked[i] = 1;
         }
         if (!id)
         {
