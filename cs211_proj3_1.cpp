@@ -107,7 +107,7 @@ int main(int argc, char*argv[])
             //  if ((low_value + (i*2+1)) % prime == 0 )
             // {
                 marked[i/2] = 1;
-                cout << "Marking: " << i << endl;
+              //  cout << "Marking: " << i << endl;
           //  }
         }
         if (!id)
