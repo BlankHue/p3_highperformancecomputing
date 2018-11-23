@@ -104,10 +104,8 @@ int main(int argc, char*argv[])
         }
         for (i = first/2; i < size; i += prime/2) //added first - 2 (orig. i = first)
         {  
-             if (i % prime/2 == 0 )
             {
                 marked[i] = 1;
-                cout << "Marking: " << i << endl;
             }
         }
         if (!id)
