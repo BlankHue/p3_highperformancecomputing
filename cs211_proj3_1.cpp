@@ -102,7 +102,7 @@ int main(int argc, char*argv[])
                 first = prime - ((low_value) % prime);
             }
         }
-        for (i = first/2; i < size; i += prime) //added first - 2 (orig. i = first)
+        for (i = first; i < size*2; i += prime) //added first - 2 (orig. i = first)
         {  
                 marked[i] = 1;
         }
@@ -132,7 +132,7 @@ int main(int argc, char*argv[])
     if (!id)
     {
        // cout << "455052511" << " primes are less than or equal to " << n*2 << endl;
-        cout << (global_count-3) << " primes are less than or equal to " << n*2 << endl;
+        cout << (global_count+1) << " primes are less than or equal to " << n*2 << endl;
         printf("Total elapsed time: %10.6f\n", elapsed_time);
     }
     MPI_Finalize();
