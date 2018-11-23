@@ -95,7 +95,7 @@ int main(int argc, char*argv[])
         {
             if (!((low_value) % prime)) 
             {
-                first = 0;
+                first = 1;
             }
             else
             {
