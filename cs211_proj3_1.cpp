@@ -54,7 +54,10 @@ int main(int argc, char*argv[])
     cout << "p is: " << p << endl;
     low_value = 2 + BLOCK_LOW(id, p, n-1);
     high_value = 2 + BLOCK_HIGH(id,p,n-1);
+    cout << "low_value: " << low_value << endl;
+    cout << "high_value: " << high_value << endl;
     size = BLOCK_SIZE(id,p,n-1);
+    cout << "size: " << size << endl;
     proc0_size = (n-1)/p;
         
     if((2 + proc0_size) < (int) sqrt((double) n))
