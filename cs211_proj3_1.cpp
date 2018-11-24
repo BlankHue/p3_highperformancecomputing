@@ -49,7 +49,7 @@ int main(int argc, char*argv[])
         exit(1);
     }
     
-    n = 500/2; 
+    n = 100/2; 
  //   cout << "argv[1] is: " << argv[1] << endl;
  //   cout << "p is: " << p << endl;
     low_value = 3 + (BLOCK_LOW(id, p, n-1))*2; //had + 2 before
@@ -132,7 +132,7 @@ int main(int argc, char*argv[])
     if (!id)
     {
        // cout << "455052511" << " primes are less than or equal to " << n*2 << endl;
-        cout << (global_count+1) << " primes are less than or equal to " << n*2 << endl;
+        cout << (global_count) << " primes are less than or equal to " << n*2 << endl;
         printf("Total elapsed time: %10.6f\n", elapsed_time);
     }
     MPI_Finalize();
