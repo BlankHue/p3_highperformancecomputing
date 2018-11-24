@@ -52,8 +52,8 @@ int main(int argc, char*argv[])
     n = 200/2; 
  //   cout << "argv[1] is: " << argv[1] << endl;
  //   cout << "p is: " << p << endl;
-    low_value = 3 + (BLOCK_LOW(id, p, n-1)); //had + 2 before
-    high_value = 3 + (BLOCK_HIGH(id,p,n-1)); //had + 2 before
+    low_value = 3 + (BLOCK_LOW(id, p, n-1))*2; //had + 2 before
+    high_value = 3 + (BLOCK_HIGH(id,p,n-1))*2; //had + 2 before
     size = BLOCK_SIZE(id,p,n-1);
     cout << "low_value (orig): " << low_value << endl;
     cout << "high_value (modified): " << high_value << endl;
@@ -102,19 +102,9 @@ int main(int argc, char*argv[])
                 first = prime - ((low_value) % prime);
             }
         }
-        if(!id)
-        {
-        for (i = first; i < size; i += prime) //added first - 2 (orig. i = first)
+        for (i = first/2; i < size; i += prime) //added first - 2 (orig. i = first)
         {  
                 marked[i] = 1;
-        }
-        }
-        else
-        {
-              for (i = first; i < size; i += prime) //added first - 2 (orig. i = first)
-        {  
-                marked[i] = 1;
-        }
         }
         if (!id)
         {
