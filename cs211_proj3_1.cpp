@@ -110,13 +110,14 @@ int main(int argc, char*argv[])
         {
             while (marked[++index]);
             prime = (index*2) + 3; //was just index + 2
+            cout << "here is index: " << index << endl;
          //   cout << "prime: " << prime << endl;
         }
        // long int temp = 4 * 16;
      //   temp = temp * temp + 10;
     //        temp = temp * temp * 10;
        MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
-    }   while (prime * prime <= n); // used to be n
+    }   while (prime * prime <= n*2); // used to be n
 
     count = 0;
     for (i = 0; i < size; i++)
