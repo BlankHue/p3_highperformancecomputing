@@ -108,9 +108,10 @@ int main(int argc, char*argv[])
         }
         if (!id)
         {
+            cout << "index is: " << index << andl;
             while (marked[++index]);
             prime = (index*2) + 3; //was just index + 2
-            cout << "prime: " << prime << endl;
+         //   cout << "prime: " << prime << endl;
         }
        // long int temp = 4 * 16;
      //   temp = temp * temp + 10;
