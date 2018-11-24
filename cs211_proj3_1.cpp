@@ -55,9 +55,9 @@ int main(int argc, char*argv[])
     low_value = 3 + (BLOCK_LOW(id, p, n-1))*2; //had + 2 before
     high_value = 3 + (BLOCK_HIGH(id,p,n-1))*2; //had + 2 before
     size = BLOCK_SIZE(id,p,n-1);
-    cout << "low_value (orig): " << low_value << endl;
-    cout << "high_value (modified): " << high_value << endl;
-    cout << "size: " << size << endl;
+   // cout << "low_value (orig): " << low_value << endl;
+   // cout << "high_value (modified): " << high_value << endl;
+   // cout << "size: " << size << endl;
     proc0_size = (n-1)/p;
         
     if((2 + proc0_size) < (int) sqrt((double) n))
