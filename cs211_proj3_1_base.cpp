@@ -101,9 +101,23 @@ int main(int argc, char*argv[])
                 first = prime - (low_value % prime);
             }
         }
-        for (i = first; i < size; i += prime)
+        for (i = first/2; i < size; i += prime)
         {
+            if((low_value + (i*2)) % prime == 0)
+            {
             marked[i] = 1;
+            }
+            else
+            {
+                while(!(low_value + (i*2)) % prime == 0))
+                {
+                        i+=1;
+                }
+                if(i < size)
+                {
+                   marked[i] = 1;
+                }
+            }
         }
         if (!id)
         {
