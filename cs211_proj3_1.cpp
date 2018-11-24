@@ -82,8 +82,9 @@ int main(int argc, char*argv[])
     if(!id)
     {
         index = 0;
+        prime = 3;
     }
-    prime = 3; // prime used to be 2
+   // prime = 3; // prime used to be 2
     //cout << prime << endl;
     do 
     {
