@@ -89,7 +89,7 @@ int main(int argc, char*argv[])
     {
         if (prime*prime > low_value)
         {
-                first = index + prime;//(prime * prime - low_value); //low-value wasn't properly indexed before
+                first = (prime * prime - low_value); //low-value wasn't properly indexed before
         }
         else 
         {
@@ -102,9 +102,23 @@ int main(int argc, char*argv[])
                 first = prime - ((low_value) % prime);
             }
         }
-        for (i = first; i < size; i += prime) //added first - 2 (orig. i = first)
+        for (i = first/2; i < size; i += prime) //added first - 2 (orig. i = first)
         {  
-                marked[i] = 1;
+            if((low_value + (i*2)) % prime == 0)
+            {
+            marked[i] = 1;
+            }
+            else
+            {
+                while(!(low_value + (i*2)) % prime == 0))
+                {
+                        i+=1;
+                }
+                if(i < size)
+                {
+                   marked[i] = 1;
+                }
+            }
         }
         if (!id)
         {
