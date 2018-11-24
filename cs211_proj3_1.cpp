@@ -124,7 +124,7 @@ int main(int argc, char*argv[])
         {
             while (marked[++index]);
             prime = (index*2) + 3; //was just index + 2
-            cout << "here is index: " << index << endl;
+        //    cout << "here is index: " << index << endl;
          //   cout << "prime: " << prime << endl;
         }
        // long int temp = 4 * 16;
