@@ -110,7 +110,7 @@ int main(int argc, char*argv[])
             }
             else
             {
-                while(!(low_value + (i*2)) % prime == 0))
+                while(!((low_value + (i*2)) % prime == 0))
                 {
                         i+=1;
                 }
