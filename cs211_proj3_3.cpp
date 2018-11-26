@@ -26,7 +26,7 @@ int main(int argc, char*argv[])
     long long int count;
     long long int global_count;
     long long int n;
-    long long int cacheline; //used to store length of cacheline
+    long long int cacheline = 10;//used to store length of cacheline
     int p; //static_cast<int>(sqrt(atoi(argv[1])));
     double elapsed_time;
     long long int size;
