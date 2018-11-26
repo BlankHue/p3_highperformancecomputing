@@ -26,6 +26,7 @@ int main(int argc, char*argv[])
     long long int count;
     long long int global_count;
     long long int n;
+    long long int tempsize = n;
     long long int cacheline = 10;//used to store length of cacheline
     int p; //static_cast<int>(sqrt(atoi(argv[1])));
     double elapsed_time;
@@ -138,9 +139,9 @@ int main(int argc, char*argv[])
         //    cout << "here is index: " << index << endl;
          //   cout << "prime: " << prime << endl;
      
-    }   while (prime * prime <= cacheline); //  used to be n
+    } while (prime * prime <= cacheline); //  used to be n
            n -= cacheline;
-    } while (prime * prime <= n*2);
+    } while (prime * prime <= n);
 
     count = 0;
     for (i = 0; i < size; i++)
