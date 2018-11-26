@@ -49,9 +49,8 @@ int main(int argc, char*argv[])
         exit(1);
     }
     
-    n = 200/2; 
- //   cout << "argv[1] is: " << argv[1] << endl;
- //   cout << "p is: " << p << endl;
+      n = strtoll (argv[1], NULL, 0);
+      n = n/2;
     low_value = 3 + (BLOCK_LOW(id, p, n-1))*2; //had + 2 before
     high_value = 3 + (BLOCK_HIGH(id,p,n-1))*2; //had + 2 before
     size = BLOCK_SIZE(id,p,n-1);
@@ -127,7 +126,7 @@ int main(int argc, char*argv[])
         //    cout << "here is index: " << index << endl;
          //   cout << "prime: " << prime << endl;
         }
-    //   MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
+       MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
     }   while (prime * prime <= n*2); // used to be n
 
     count = 0;
@@ -143,7 +142,6 @@ int main(int argc, char*argv[])
     elapsed_time += MPI_Wtime();
     if (!id)
     {
-       // cout << "455052511" << " primes are less than or equal to " << n*2 << endl;
         cout << (global_count+1) << " primes are less than or equal to " << n*2 << endl;
         printf("Total elapsed time: %10.6f\n", elapsed_time);
     }
