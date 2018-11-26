@@ -124,7 +124,10 @@ int main(int argc, char*argv[])
                 }
             }
         }
+           if(index < size)
+           {
             index += 1;
+           }
             prime = (index*2) + 3; //was just index + 2
         //    cout << "here is index: " << index << endl;
          //   cout << "prime: " << prime << endl;
