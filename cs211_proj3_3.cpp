@@ -92,6 +92,8 @@ int main(int argc, char*argv[])
     //cout << prime << endl;
     do 
     {
+    do 
+    {
         
         if (prime*prime > low_value)
         {
@@ -136,7 +138,9 @@ int main(int argc, char*argv[])
         //    cout << "here is index: " << index << endl;
          //   cout << "prime: " << prime << endl;
      
-    }   while (prime * prime <= size); //  used to be n
+    }   while (prime * prime <= cacheline); //  used to be n
+            size+= cacheline;
+    } while (prime * prime <= size)
 
     count = 0;
     for (i = 0; i < size; i++)
