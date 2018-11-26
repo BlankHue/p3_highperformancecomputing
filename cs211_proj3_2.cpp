@@ -135,7 +135,7 @@ int main(int argc, char*argv[])
         //    cout << "here is index: " << index << endl;
          //   cout << "prime: " << prime << endl;
      
-    }   while (prime * prime <= p); //  used to be n
+    }   while (prime * prime <= high_value); //  used to be n
 
     count = 0;
     for (i = 0; i < size; i++)
