@@ -54,9 +54,9 @@ int main(int argc, char*argv[])
     low_value = 3 + (BLOCK_LOW(id, p, n-1))*2; //had + 2 before
     high_value = 3 + (BLOCK_HIGH(id,p,n-1))*2; //had + 2 before
     size = BLOCK_SIZE(id,p,n-1);
-    cout << "low_value (orig): " << low_value << endl;
-    cout << "high_value (orig): " << high_value << endl;
-    cout << "process id: " << id << endl;
+   // cout << "low_value (orig): " << low_value << endl;
+   // cout << "high_value (orig): " << high_value << endl;
+   // cout << "process id: " << id << endl;
    // cout << "size: " << size << endl;
     proc0_size = (n-1)/p;
         
@@ -124,16 +124,11 @@ int main(int argc, char*argv[])
                 }
             }
         }
-        //if (!id)
-       // {
-          //  while (marked[++index]);
             index += 1;
             prime = (index*2) + 3; //was just index + 2
         //    cout << "here is index: " << index << endl;
          //   cout << "prime: " << prime << endl;
-     //   }
-         
-   //    MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
+     
     }   while (prime * prime <= n*2); // used to be n
 
     count = 0;
@@ -145,7 +140,7 @@ int main(int argc, char*argv[])
         }
     }
         
-    cout << "For " << low_value << "-" << high_value << " there are " << count << " primes" << endl;
+//    cout << "For " << low_value << "-" << high_value << " there are " << count << " primes" << endl;
 
 
     MPI_Reduce (&count, &global_count, 1, MPI_INT, MPI_SUM,0,MPI_COMM_WORLD);
