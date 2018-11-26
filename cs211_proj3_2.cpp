@@ -67,7 +67,8 @@ int main(int argc, char*argv[])
         exit(1);
     }
 
-    marked = (char *) malloc (size);
+    marked = (char *) malloc (proc0_size);
+    marked2 = (char *) malloc (size);
     if (marked == NULL)
     {
         cout << "Cannot allocate enough memory" << endl;
@@ -75,20 +76,62 @@ int main(int argc, char*argv[])
         exit(1);
     }
 
-    for (i = 0; i < size; i++)
+    for (i = 0; i < proc0_size; i++)
     {
         marked[i] = 0;
     }
-    //if(!id)
-   // {
+    for (i = 0; i < size; i++)
+    {
+        marked2[i] = 0;
+    }
     index = 0;
-   // }
     prime = 3; // prime used to be 2
-  //  if(id)
- //   {
-  //    prime = 2;
-  //  }
-    //cout << prime << endl;
+    do 
+    {
+        if (prime*prime > 3)
+        {
+                first = (prime * prime - 3); //low-value wasn't properly indexed before
+        } 
+        else
+        {
+            if (!((3) % prime)) 
+            {
+                first = 0;
+            }
+           
+            else
+            {
+                first = prime - ((3) % prime);
+            }
+        }
+           
+        for (i = first/2; i < size; i += prime) //added first - 2 (orig. i = first)
+        {  
+            if((3 + (i*2)) % prime == 0)
+            {
+            marked[i] = 1;
+            }
+            else
+            {
+                while(!((3 + (i*2)) % prime == 0))
+                {
+                        i+=1;
+                }
+                if(i < proc0_size)
+                {
+                   marked[i] = 1;
+                }
+            }
+        }
+            
+            while (marked[++index]);
+            prime = (index*2) + 3;
+                   //    cout << "here is index: " << index << endl;
+         //   cout << "prime: " << prime << endl;
+     
+    }   while (prime * prime <= n*2); //  used to be n
+    // break between
+    prime = 3;
     do 
     {
         
@@ -113,7 +156,7 @@ int main(int argc, char*argv[])
         {  
             if((low_value + (i*2)) % prime == 0)
             {
-            marked[i] = 1;
+            marked2[i] = 1;
             }
             else
             {
@@ -123,7 +166,7 @@ int main(int argc, char*argv[])
                 }
                 if(i < size)
                 {
-                   marked[i] = 1;
+                   marked2[i] = 1;
                 }
             }
         }
@@ -138,7 +181,7 @@ int main(int argc, char*argv[])
     count = 0;
     for (i = 0; i < size; i++)
     {
-        if (!marked[i])
+        if (!marked2[i])
         {
             count++;
         }
