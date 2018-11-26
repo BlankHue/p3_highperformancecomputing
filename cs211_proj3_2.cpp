@@ -78,11 +78,15 @@ int main(int argc, char*argv[])
     {
         marked[i] = 0;
     }
-  //  if(!id)
+    //if(!id)
    // {
         index = 0;
    // }
     prime = 3; // prime used to be 2
+    if(id)
+    {
+      prime = 2;
+    }
     //cout << prime << endl;
     do 
     {
