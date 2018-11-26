@@ -139,8 +139,8 @@ int main(int argc, char*argv[])
          //   cout << "prime: " << prime << endl;
      
     }   while (prime * prime <= cacheline); //  used to be n
-            size+= cacheline;
-    } while (prime * prime <= size)
+           n -= cacheline;
+    } while (prime * prime <= n*2)
 
     count = 0;
     for (i = 0; i < size; i++)
