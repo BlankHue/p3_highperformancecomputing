@@ -95,7 +95,7 @@ int main(int argc, char*argv[])
         {
                 first = (prime * prime - low_value); //low-value wasn't properly indexed before
         }
-        else 
+       /* else 
         {
             if (!((low_value) % prime)) 
             {
@@ -105,7 +105,7 @@ int main(int argc, char*argv[])
             {
                 first = prime - ((low_value) % prime);
             }
-        }
+        }*/
         for (i = first/2; i < size; i += prime) //added first - 2 (orig. i = first)
         {  
             if((low_value + (i*2)) % prime == 0)
@@ -132,7 +132,7 @@ int main(int argc, char*argv[])
         //    cout << "here is index: " << index << endl;
          //   cout << "prime: " << prime << endl;
      
-    }   while (prime * prime < size*2); //  used to be n
+    }   while (prime * prime < n*2); //  used to be n
 
     count = 0;
     for (i = 0; i < size; i++)
