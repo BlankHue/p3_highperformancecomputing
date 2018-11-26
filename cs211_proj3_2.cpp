@@ -127,10 +127,7 @@ int main(int argc, char*argv[])
                 }
             }
         }
-          // if(index < size)
-          // {
-          //  index += 1;
-          // }
+            
             while (marked[++index]);
             prime = (index*2) + 3;
                    //    cout << "here is index: " << index << endl;
