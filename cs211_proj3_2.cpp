@@ -143,6 +143,11 @@ int main(int argc, char*argv[])
             count++;
         }
     }
+        
+    if(id == 1)
+    {
+       cout << "21-39, there are " << count << " primes" << endl;
+    }
 
     MPI_Reduce (&count, &global_count, 1, MPI_INT, MPI_SUM,0,MPI_COMM_WORLD);
     elapsed_time += MPI_Wtime();
