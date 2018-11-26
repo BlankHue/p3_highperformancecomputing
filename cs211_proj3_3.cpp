@@ -114,7 +114,7 @@ int main(int argc, char*argv[])
             }
         }
            
-        for (i = first/2; i < size; i += prime) //added first - 2 (orig. i = first)
+        for (i = first/2; i < cacheline; i += prime) //added first - 2 (orig. i = first)
         {  
             if((low_value + (i*2)) % prime == 0)
             {
@@ -126,7 +126,7 @@ int main(int argc, char*argv[])
                 {
                         i+=1;
                 }
-                if(i < size)
+                if(i < cacheline)
                 {
                    marked[i] = 1;
                 }
