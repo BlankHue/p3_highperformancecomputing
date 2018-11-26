@@ -96,7 +96,8 @@ int main(int argc, char*argv[])
         {
                 first = (prime * prime - low_value); //low-value wasn't properly indexed before
         } 
-        else{
+        else
+        {
             if (!((low_value) % prime)) 
             {
                 first = 0;
@@ -108,7 +109,7 @@ int main(int argc, char*argv[])
             }
         }
            
-        for (i = 0; i < size; i += prime) //added first - 2 (orig. i = first)
+        for (i = first/2; i < size; i += prime) //added first - 2 (orig. i = first)
         {  
             if((low_value + (i*2)) % prime == 0)
             {
