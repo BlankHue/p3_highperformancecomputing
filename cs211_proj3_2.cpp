@@ -127,12 +127,13 @@ int main(int argc, char*argv[])
                 }
             }
         }
-           if(index < size)
-           {
-            index += 1;
-           }
-            prime = (index*2) + 3; //was just index + 2
-        //    cout << "here is index: " << index << endl;
+          // if(index < size)
+          // {
+          //  index += 1;
+          // }
+            while (marked[++index]);
+            prime = (index*2) + 3;
+                   //    cout << "here is index: " << index << endl;
          //   cout << "prime: " << prime << endl;
      
     }   while (prime * prime <= high_value); //  used to be n
