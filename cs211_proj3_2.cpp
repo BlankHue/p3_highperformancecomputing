@@ -126,7 +126,7 @@ int main(int argc, char*argv[])
         //    cout << "here is index: " << index << endl;
          //   cout << "prime: " << prime << endl;
         }
-   //    MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
+       MPI_Bcast(&prime, 1, MPI_INT, 0, MPI_COMM_WORLD);
     }   while (prime * prime <= n*2); // used to be n
 
     count = 0;
