@@ -49,7 +49,9 @@ int main(int argc, char*argv[])
         exit(1);
     }
     
-    n = 10000000000/2; 
+      n = strtoll (argv[1], NULL, 0);
+      n = n/2;
+   // n = 10000000000/2; 
     low_value = 3 + (BLOCK_LOW(id, p, n-1))*2; //had + 2 before
     high_value = 3 + (BLOCK_HIGH(id,p,n-1))*2; //had + 2 before
     size = BLOCK_SIZE(id,p,n-1);
