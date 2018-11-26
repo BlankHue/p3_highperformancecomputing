@@ -32,6 +32,7 @@ int main(int argc, char*argv[])
     long long int low_value;
     long long int high_value;
     char* marked;
+    char* marked2;
     long long int proc0_size;
     MPI_Init (&argc, &argv); // initiaslizes anything if necessary
     MPI_Barrier(MPI_COMM_WORLD);
