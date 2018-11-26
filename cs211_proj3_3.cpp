@@ -140,7 +140,7 @@ int main(int argc, char*argv[])
      
     }   while (prime * prime <= cacheline); //  used to be n
            n -= cacheline;
-    } while (prime * prime <= n*2)
+    } while (prime * prime <= n*2);
 
     count = 0;
     for (i = 0; i < size; i++)
