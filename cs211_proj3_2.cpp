@@ -83,10 +83,10 @@ int main(int argc, char*argv[])
         index = 0;
    // }
     prime = 3; // prime used to be 2
-    if(id)
-    {
-      prime = 2;
-    }
+  //  if(id)
+ //   {
+  //    prime = 2;
+  //  }
     //cout << prime << endl;
     do 
     {
