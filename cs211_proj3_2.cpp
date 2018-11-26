@@ -56,6 +56,7 @@ int main(int argc, char*argv[])
     size = BLOCK_SIZE(id,p,n-1);
     cout << "low_value (orig): " << low_value << endl;
     cout << "high_value (orig): " << high_value << endl;
+    cout << "process id: " << p << endl;
    // cout << "size: " << size << endl;
     proc0_size = (n-1)/p;
         
