@@ -104,6 +104,7 @@ int main(int argc, char*argv[])
             else
             {
                 first = prime - ((low_value) % prime);
+                first = first*2;
             }
            
         for (i = first/2; i < size; i += prime) //added first - 2 (orig. i = first)
