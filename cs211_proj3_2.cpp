@@ -57,12 +57,7 @@ int main(int argc, char*argv[])
     low_value = 3 + (BLOCK_LOW(id, p, n-1))*2; //had + 2 before
     high_value = 3 + (BLOCK_HIGH(id,p,n-1))*2; //had + 2 before
     size = BLOCK_SIZE(id,p,n-1);
-   // cout << "low_value (orig): " << low_value << endl;
-   // cout << "high_value (orig): " << high_value << endl;
-   // cout << "process id: " << id << endl;
-   // cout << "size: " << size << endl;
     proc0_size = (n-1)/p;
-  //  cout << "process 0 size is: " << proc0_size << endl;
         
     if((2 + proc0_size) < (int) sqrt((double) n))
     {
@@ -130,8 +125,6 @@ int main(int argc, char*argv[])
             
             while (marked[++index]);
             prime = (index*2) + 3;
-                   //    cout << "here is index: " << index << endl;
-         //   cout << "prime: " << prime << endl;
      
     } while (prime * prime <= n*2); //  used to be n
     
@@ -211,8 +204,6 @@ int main(int argc, char*argv[])
        MPI_Reduce (&tempCount, &global_count, 1, MPI_INT, MPI_SUM,0,MPI_COMM_WORLD);
        elapsed_time += MPI_Wtime(); 
     }
-//    cout << "For " << low_value << "-" << high_value << " there are " << count << " primes" << endl;
-
 
     if (!id)
     {
