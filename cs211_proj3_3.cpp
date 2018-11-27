@@ -143,14 +143,14 @@ int main(int argc, char*argv[])
             }
     }
     }
+   
+    
     if(id)
     {
     prime = 3;
     index = 0;
     low_value_block = low_value;
     high_value_block = low_value + block_size;
-    
-   
    do
    {
     do 
@@ -200,7 +200,6 @@ int main(int argc, char*argv[])
      {
         high_value_block = high_value;
      }
-     low_value_block += block_size;
     }   while (prime * prime <= high_value); //  used to be n
      
     } 
