@@ -133,7 +133,15 @@ int main(int argc, char*argv[])
      
     }   while (prime * prime <= n*2); //  used to be n
     // break between
-    cout << "Amount of marked is: " << endl;
+    int tempcount = 0;
+    for (i = 0; i < proc0_size; ++i)
+    {
+            if(!marked[i])
+            {
+               tempcount += 1;
+            }
+    }
+    cout << "Amount of marked is: " << tempcount << endl;
     prime = 3;
     index = 0;
     do 
