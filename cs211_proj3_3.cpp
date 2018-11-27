@@ -185,10 +185,10 @@ int main(int argc, char*argv[])
                 {
                         i+=1;
                 }
-              //  if(i < block_size)
-               // {
+                if(i < block_size)
+                  {
                    marked2[i] = 1;
-                //}
+                   }
             }
         }   
             while (marked[++index]);
@@ -199,7 +199,7 @@ int main(int argc, char*argv[])
      low_value_block = high_value_block+2;
      high_value_block += ((block_size*2));
      
-     cout << "this is high_value_block " << high_value_block << endl;
+     //cout << "this is high_value_block " << high_value_block << endl;
      if(high_value_block > high_value)
      {
         high_value_block = high_value;
