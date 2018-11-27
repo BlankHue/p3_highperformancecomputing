@@ -30,6 +30,7 @@ int main(int argc, char*argv[])
     int p; //static_cast<int>(sqrt(atoi(argv[1])));
     double elapsed_time;
     long long int size;
+    long long int currsize = 0;
     long long int low_value;
     long long int high_value;
     int cacheline = 10;
