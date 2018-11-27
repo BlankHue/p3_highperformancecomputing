@@ -230,7 +230,7 @@ int main(int argc, char*argv[])
 
     if (!id)
     {
-        cout << (global_count*cache_variant) << " primes are less than or equal to " << n*2 << endl;
+        cout << (static_cast<long long double>(global_count)*cache_variant) << " primes are less than or equal to " << n*2 << endl;
         printf("Total elapsed time: %10.6f\n", elapsed_time);
     }
     MPI_Finalize();
