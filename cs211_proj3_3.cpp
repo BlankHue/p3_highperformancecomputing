@@ -185,10 +185,10 @@ int main(int argc, char*argv[])
                 {
                         i+=1;
                 }
-                if(i <= (high_value_block-low_value_block)/2))
+                if(i <= ((high_value_block-low_value_block)/2))
                   {
                    marked2[i] = 1;
-                   }
+                  }
             }
         }   
             while (marked[++index]);
