@@ -32,6 +32,7 @@ int main(int argc, char*argv[])
     long long int size;
     long long int low_value;
     long long int high_value;
+    int cacheline = 10;
     char* marked;
     char* marked2;
     long long int proc0_size;
