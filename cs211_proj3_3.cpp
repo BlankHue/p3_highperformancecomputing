@@ -32,7 +32,6 @@ int main(int argc, char*argv[])
     int p; //static_cast<int>(sqrt(atoi(argv[1])));
     double elapsed_time;
     long long int size;
-    long long int currsize = 0;
     long long int low_value;
     long long int high_value;
     int block_size = 10;
@@ -150,7 +149,8 @@ int main(int argc, char*argv[])
     prime = 3;
     index = 0;
     low_value_block = low_value;
-    high_value_block = low_value + (block_size*2);
+    high_value_block = low_value + (block_size*2) - 2;
+    cout << "true high val " << high_value_block <<endl;
    do
    {
     prime = 3;
