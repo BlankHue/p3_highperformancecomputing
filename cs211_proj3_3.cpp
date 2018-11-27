@@ -149,7 +149,7 @@ int main(int argc, char*argv[])
     prime = 3;
     index = 0;
     low_value_block = low_value;
-    high_value_block = low_value + (block_size*2) - 2;
+    high_value_block = low_value + (block_size*2);
     cout << "true high val " << high_value_block <<endl;
    do
    {
