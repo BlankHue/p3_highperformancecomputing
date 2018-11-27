@@ -133,14 +133,19 @@ int main(int argc, char*argv[])
      
     }   while (prime * prime <= n*2); //  used to be n
     // break between
-     
-    i = 0;
+    int tempCount = 0;
+    while(int i = 0; i < proc0_size; i++)
+    {
+            if(!marked[i])
+            {
+                    cout << "hello";
+            }
+    }
     prime = 3;
     index = 0;
     
     do 
     {
-        
         if (prime*prime > low_value)
         {
                 first = (prime * prime - low_value); //low-value wasn't properly indexed before
