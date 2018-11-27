@@ -34,7 +34,7 @@ int main(int argc, char*argv[])
     long long int size;
     long long int low_value;
     long long int high_value;
-    int block_size = 1000;
+    int block_size = 10000;
     long long int low_value_block = 0;
     long long int high_value_block;
     char* marked;
