@@ -24,16 +24,17 @@ int main(int argc, char*argv[])
     long long int prime;
     long long int first;
     long long int count;
+    long long int tempCount = 0;
     long long int global_count;
     long long int n;
-    long long int tempsize;
-    long long int cacheline = 10;//used to store length of cacheline
     int p; //static_cast<int>(sqrt(atoi(argv[1])));
     double elapsed_time;
     long long int size;
     long long int low_value;
     long long int high_value;
+    int cacheline = 10;
     char* marked;
+    char* marked2;
     long long int proc0_size;
     MPI_Init (&argc, &argv); // initiaslizes anything if necessary
     MPI_Barrier(MPI_COMM_WORLD);
@@ -56,10 +57,6 @@ int main(int argc, char*argv[])
     low_value = 3 + (BLOCK_LOW(id, p, n-1))*2; //had + 2 before
     high_value = 3 + (BLOCK_HIGH(id,p,n-1))*2; //had + 2 before
     size = BLOCK_SIZE(id,p,n-1);
-   // cout << "low_value (orig): " << low_value << endl;
-   // cout << "high_value (orig): " << high_value << endl;
-   // cout << "process id: " << id << endl;
-   // cout << "size: " << size << endl;
     proc0_size = (n-1)/p;
         
     if((2 + proc0_size) < (int) sqrt((double) n))
@@ -69,7 +66,8 @@ int main(int argc, char*argv[])
         exit(1);
     }
 
-    marked = (char *) malloc (size);
+    marked = (char *) malloc (proc0_size);
+    marked2 = (char *) malloc (size);
     if (marked == NULL)
     {
         cout << "Cannot allocate enough memory" << endl;
@@ -77,26 +75,75 @@ int main(int argc, char*argv[])
         exit(1);
     }
 
-    for (i = 0; i < size; i++)
+    for (i = 0; i < proc0_size; i++)
     {
         marked[i] = 0;
     }
-    //if(!id)
-   // {
+    for (i = 0; i < size; i++)
+    {
+        marked2[i] = 0;
+    }
     index = 0;
-   // }
     prime = 3; // prime used to be 2
-    tempsize = low_value + cacheline;
-  //  if(id)
- //   {
-  //    prime = 2;
-  //  }
-    //cout << prime << endl;
     do 
     {
+        if (prime*prime > 3)
+        {
+                first = (prime * prime - 3); //low-value wasn't properly indexed before
+        } 
+        else
+        {
+            if (!((3) % prime)) 
+            {
+                first = 0;
+            }
+           
+            else
+            {
+                first = prime - ((3) % prime);
+            }
+        }
+           
+        for (i = first/2; i < proc0_size; i += prime) //added first - 2 (orig. i = first)
+        {  
+            if((3 + (i*2)) % prime == 0)
+            {
+            marked[i] = 1;
+            }
+            else
+            {
+                while(!((3 + (i*2)) % prime == 0))
+                {
+                        i+=1;
+                }
+                if(i < proc0_size)
+                {
+                   marked[i] = 1;
+                }
+            }
+        }
+            
+            while (marked[++index]);
+            prime = (index*2) + 3;
+     
+    } while (prime * prime <= n*2); //  used to be n
+    
+    if(!id)
+    {
+    for(i = 0; i < proc0_size; i++)
+    {
+            if(!marked[i])
+            {
+                   tempCount +=1;
+            }
+    }
+    }
+    if(id)
+    {
+    prime = 3;
+    index = 0;
     do 
     {
-        
         if (prime*prime > low_value)
         {
                 first = (prime * prime - low_value); //low-value wasn't properly indexed before
@@ -114,11 +161,11 @@ int main(int argc, char*argv[])
             }
         }
            
-        for (i = first/2; i < cacheline; i += prime) //added first - 2 (orig. i = first)
+        for (i = first/2; i < size; i += prime) //added first - 2 (orig. i = first)
         {  
             if((low_value + (i*2)) % prime == 0)
             {
-            marked[i] = 1;
+            marked2[i] = 1;
             }
             else
             {
@@ -126,42 +173,38 @@ int main(int argc, char*argv[])
                 {
                         i+=1;
                 }
-                if(i < cacheline)
+                if(i < size)
                 {
-                   marked[i] = 1;
+                   marked2[i] = 1;
                 }
             }
-        }
-           if(index < size)
-           {
-            index += 1;
-           }
-            prime = (index*2) + 3; //was just index + 2
-        //    cout << "here is index: " << index << endl;
-         //   cout << "prime: " << prime << endl;
+        }   
+            while (marked[++index]);
+            prime = (index*2) + 3;
      
-    } while (prime * prime <= tempsize); //  used to be n
-      tempsize += cacheline;
-      if(tempsize > high_value)
-      {
-        tempsize = high_value;
-      }
-    } while (prime * prime <= high_value);
+    }   while (prime * prime <= high_value); //  used to be n
+     
+    }
 
+    if(id)
+    {
     count = 0;
     for (i = 0; i < size; i++)
     {
-        if (!marked[i])
+        if (!marked2[i])
         {
             count++;
         }
     }
-        
-//    cout << "For " << low_value << "-" << high_value << " there are " << count << " primes" << endl;
-
-
     MPI_Reduce (&count, &global_count, 1, MPI_INT, MPI_SUM,0,MPI_COMM_WORLD);
     elapsed_time += MPI_Wtime();
+    }
+    else
+    {
+       MPI_Reduce (&tempCount, &global_count, 1, MPI_INT, MPI_SUM,0,MPI_COMM_WORLD);
+       elapsed_time += MPI_Wtime(); 
+    }
+
     if (!id)
     {
         cout << (global_count+1) << " primes are less than or equal to " << n*2 << endl;
@@ -169,7 +212,9 @@ int main(int argc, char*argv[])
     }
     MPI_Finalize();
     return 0;
+
 }
+
 //compile by doing mpiCC -o prog prog.cpp
 //execution by mpiexec -v -np no_procs prog
 //mpiexec -np 100 --hostfile hosts prog // runs 100 processes on 4 computers
