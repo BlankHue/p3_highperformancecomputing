@@ -106,7 +106,7 @@ int main(int argc, char*argv[])
             }
         }
            
-        for (i = first/2; i < size; i += prime) //added first - 2 (orig. i = first)
+        for (i = first/2; i < proc0_size; i += prime) //added first - 2 (orig. i = first)
         {  
             if((3 + (i*2)) % prime == 0)
             {
@@ -170,12 +170,9 @@ int main(int argc, char*argv[])
                    marked2[i] = 1;
                 }
             }
-        }
-            
+        }   
             while (marked[++index]);
             prime = (index*2) + 3;
-                   //    cout << "here is index: " << index << endl;
-         //   cout << "prime: " << prime << endl;
      
     }   while (prime * prime <= n*2); //  used to be n
 
