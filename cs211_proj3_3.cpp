@@ -196,8 +196,8 @@ int main(int argc, char*argv[])
     } while (prime * prime <= high_value_block);
      
      index = 0;
-     low_value_block = high_value_block;
-     high_value_block += ((block_size*2)-2);
+     low_value_block = high_value_block+2;
+     high_value_block += ((block_size*2));
      
      cout << "this is high_value_block " << high_value_block << endl;
      if(high_value_block > high_value)
