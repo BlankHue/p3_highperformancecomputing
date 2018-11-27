@@ -60,6 +60,7 @@ int main(int argc, char*argv[])
    // cout << "process id: " << id << endl;
    // cout << "size: " << size << endl;
     proc0_size = ((n*2)-1)/p;
+    cout << "process 0 size is: " << proc0_size << endl;
         
     if((2 + proc0_size) < (int) sqrt((double) n))
     {
