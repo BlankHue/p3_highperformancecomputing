@@ -1,3 +1,5 @@
+//CREATED BY NIKHIL GOWDA
+
 #include <mpi.h>
 #include <math.h>
 #include <iostream>
@@ -145,6 +147,8 @@ int main(int argc, char*argv[])
     {
     prime = 3;
     index = 0;
+    low_value_block = low_value;
+    high_value_block = low_value += block_size;
     
    
    do
