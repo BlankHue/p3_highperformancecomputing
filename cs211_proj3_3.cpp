@@ -153,6 +153,7 @@ int main(int argc, char*argv[])
     high_value_block = low_value + (block_size*2);
    do
    {
+    prime = 3;
     do 
     {
         if (prime*prime > low_value_block)
@@ -195,7 +196,6 @@ int main(int argc, char*argv[])
     } while (prime * prime <= high_value_block);
      
      index = 0;
-     prime = 3;
      low_value_block = high_value_block;
      high_value_block += (block_size*2);
      
