@@ -189,7 +189,7 @@ int main(int argc, char*argv[])
             while (marked[++index]);
             prime = (index*2) + 3;
      
-    }   while (prime * prime <= size); //  used to be n
+    }   while (prime * prime <= high_value); //  used to be n
      
     }
 
