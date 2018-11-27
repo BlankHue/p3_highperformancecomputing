@@ -33,7 +33,9 @@ int main(int argc, char*argv[])
     long long int currsize = 0;
     long long int low_value;
     long long int high_value;
-    int cacheline = 10;
+    int block_size = 10;
+    long long int low_value_block = 0;
+    long long int high_value_block;
     char* marked;
     char* marked2;
     long long int proc0_size;
@@ -143,38 +145,42 @@ int main(int argc, char*argv[])
     {
     prime = 3;
     index = 0;
+    
+   
+   do
+   {
     do 
     {
-        if (prime*prime > low_value)
+        if (prime*prime > low_value_block)
         {
-                first = (prime * prime - low_value); //low-value wasn't properly indexed before
+                first = (prime * prime - low_value_block); //low-value wasn't properly indexed before
         } 
         else
         {
-            if (!((low_value) % prime)) 
+            if (!((low_value_block) % prime)) 
             {
                 first = 0;
             }
            
             else
             {
-                first = prime - ((low_value) % prime);
+                first = prime - ((low_value_block) % prime);
             }
         }
            
-        for (i = first/2; i < size; i += prime) //added first - 2 (orig. i = first)
+        for (i = (first/2) + low_value_block; i < block_size; i += prime) //added first - 2 (orig. i = first)
         {  
-            if((low_value + (i*2)) % prime == 0)
+            if((low_value_block + (i*2)) % prime == 0)
             {
             marked2[i] = 1;
             }
             else
             {
-                while(!((low_value + (i*2)) % prime == 0))
+                while(!((low_value_block + (i*2)) % prime == 0))
                 {
                         i+=1;
                 }
-                if(i < size)
+                if(i < block_size)
                 {
                    marked2[i] = 1;
                 }
@@ -182,10 +188,18 @@ int main(int argc, char*argv[])
         }   
             while (marked[++index]);
             prime = (index*2) + 3;
-     
+    } while (prime * prime <= high_value_block);
+     index = 0;
+     low_value_block = high_value_block;
+     high_value_block += block_size;
+     if(high_value_block > high_value)
+     {
+        high_value_block = high_value;
+     }
+     low_value_block += block_size;
     }   while (prime * prime <= high_value); //  used to be n
      
-    }
+    } 
 
     if(id)
     {
