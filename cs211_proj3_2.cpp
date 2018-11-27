@@ -134,13 +134,14 @@ int main(int argc, char*argv[])
     }   while (prime * prime <= n*2); //  used to be n
     // break between
     int tempCount = 0;
-    for(i = 0; i < proc0_size; i++)
+    tempcount += 1;
+/*for(i = 0; i < proc0_size; i++)
     {
             if(!marked[i])
             {
                    tempCount +=1;
             }
-    }
+    }*/
     prime = 3;
     index = 0;
     
