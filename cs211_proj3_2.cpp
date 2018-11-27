@@ -131,8 +131,8 @@ int main(int argc, char*argv[])
                    //    cout << "here is index: " << index << endl;
          //   cout << "prime: " << prime << endl;
      
-    }   while (prime * prime <= n*2); //  used to be n
-    // break between
+    } while (prime * prime <= n*2); //  used to be n
+        
     int tempCount = 0;
     tempCount += 1;
 /*for(i = 0; i < proc0_size; i++)
