@@ -185,7 +185,7 @@ int main(int argc, char*argv[])
                 {
                         i+=1;
                 }
-                if(i < block_size)
+                if(i <= (high_value_block-low_value_block)/2))
                   {
                    marked2[i] = 1;
                    }
@@ -204,7 +204,7 @@ int main(int argc, char*argv[])
      {
         high_value_block = high_value;
      }
-    }   while (prime * prime <= high_value); //  used to be n
+    } while (prime * prime <= high_value); //  used to be n
      
     } 
 
