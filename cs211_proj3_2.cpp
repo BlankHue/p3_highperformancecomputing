@@ -24,6 +24,7 @@ int main(int argc, char*argv[])
     long long int prime;
     long long int first;
     long long int count;
+    long long int tempCount = 0;
     long long int global_count;
     long long int n;
     int p; //static_cast<int>(sqrt(atoi(argv[1])));
@@ -135,7 +136,6 @@ int main(int argc, char*argv[])
     
     if(!id)
     {
-    long long int tempCount = 0;
     for(i = 0; i < proc0_size; i++)
     {
             if(!marked[i])
