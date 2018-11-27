@@ -172,7 +172,7 @@ int main(int argc, char*argv[])
             }
         }
            
-        for (i = (first/2) + low_value_block; i < block_size; i += prime) //added first - 2 (orig. i = first)
+        for (i = (first/2) + (low_value_block-3); i < block_size; i += prime) //added first - 2 (orig. i = first)
         {  
             if((low_value_block + (i*2)) % prime == 0)
             {
