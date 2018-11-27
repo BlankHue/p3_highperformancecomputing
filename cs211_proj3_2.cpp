@@ -144,6 +144,7 @@ int main(int argc, char*argv[])
     cout << "Amount of marked is: " << tempcount << endl;
     prime = 3;
     index = 0;
+    
     do 
     {
         
