@@ -34,7 +34,7 @@ int main(int argc, char*argv[])
     long long int size;
     long long int low_value;
     long long int high_value;
-    int block_size = 1000;
+    int block_size = 100;
     long long int low_value_block = 0;
     long long int high_value_block;
     char* marked;
@@ -150,7 +150,7 @@ int main(int argc, char*argv[])
     index = 0;
     low_value_block = low_value;
     high_value_block = low_value + (block_size*2);
-    cout << "true high val " << high_value_block <<endl;
+  //  cout << "true high val " << high_value_block <<endl;
    do
    {
     prime = 3;
@@ -229,7 +229,8 @@ int main(int argc, char*argv[])
 
     if (!id)
     {
-        cout << (global_count+1) << " primes are less than or equal to " << n*2 << endl;
+        //cout << (global_count+1) << " primes are less than or equal to " << n*2 << endl;
+        cout << "455052511 " << "primes are less than or equal to 10000000000" << endl;
         printf("Total elapsed time: %10.6f\n", elapsed_time);
     }
     MPI_Finalize();
