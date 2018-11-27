@@ -37,6 +37,7 @@ int main(int argc, char*argv[])
     int block_size = 10000;
     long long int low_value_block = 0;
     long long int high_value_block;
+    double cache_variant = 2/3;
     char* marked;
     char* marked2;
     long long int proc0_size;
@@ -229,7 +230,7 @@ int main(int argc, char*argv[])
 
     if (!id)
     {
-        cout << (global_count+1) << " primes are less than or equal to " << n*2 << endl;
+        cout << (global_count/cache_variant) << " primes are less than or equal to " << n*2 << endl;
         printf("Total elapsed time: %10.6f\n", elapsed_time);
     }
     MPI_Finalize();
