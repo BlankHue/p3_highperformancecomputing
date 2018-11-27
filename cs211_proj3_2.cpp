@@ -138,7 +138,7 @@ int main(int argc, char*argv[])
     {
             if(!marked[i])
             {
-                    cout << "hello" << endl;
+                    cout << tempcount << endl;
             }
     }
     prime = 3;
