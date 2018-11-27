@@ -134,11 +134,11 @@ int main(int argc, char*argv[])
     }   while (prime * prime <= n*2); //  used to be n
     // break between
     int tempCount = 0;
-    while(int i = 0; i < proc0_size; i++)
+    for(i = 0; i < proc0_size; i++)
     {
             if(!marked[i])
             {
-                    cout << "hello";
+                    cout << "hello" << endl;
             }
     }
     prime = 3;
