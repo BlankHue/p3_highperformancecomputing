@@ -173,7 +173,7 @@ int main(int argc, char*argv[])
             }
         }
            
-        for (i = (first/2) + ((low_value_block - low_value)/2); i <= ((high_value_block-low_value_block)/2); i += prime) //added first - 2 (orig. i = first)
+        for (i = (first/2) + ((low_value_block - low_value)/2); i < ((high_value_block-low_value_block)/2); i += prime) //added first - 2 (orig. i = first)
         {  
             if((low_value_block + (i*2)) % prime == 0)
             {
@@ -196,7 +196,7 @@ int main(int argc, char*argv[])
     } while (prime * prime <= high_value_block);
      
      index = 0;
-     low_value_block = high_value_block+2;
+     low_value_block = high_value_block + 2;
      high_value_block += ((block_size*2));
      
      //cout << "this is high_value_block " << high_value_block << endl;
@@ -204,7 +204,7 @@ int main(int argc, char*argv[])
      {
         high_value_block = high_value;
      }
-    } while (prime * prime <= high_value); //  used to be n
+    } while ((prime * prime <= high_value) && (high_value_block == high_value)); //  used to be n
      
     } 
 
