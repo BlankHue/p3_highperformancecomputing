@@ -132,19 +132,22 @@ int main(int argc, char*argv[])
          //   cout << "prime: " << prime << endl;
      
     } while (prime * prime <= n*2); //  used to be n
-        
-    int tempCount = 0;
-    tempCount += 1;
-/*for(i = 0; i < proc0_size; i++)
+    
+    if(!id)
+    {
+    long long int tempCount = 0;
+    for(i = 0; i < proc0_size; i++)
     {
             if(!marked[i])
             {
                    tempCount +=1;
             }
-    }*/
+    }
+    }
+    if(id)
+    {
     prime = 3;
     index = 0;
-    
     do 
     {
         if (prime*prime > low_value)
@@ -186,7 +189,11 @@ int main(int argc, char*argv[])
             prime = (index*2) + 3;
      
     }   while (prime * prime <= n*2); //  used to be n
+     
+    }
 
+    if(id)
+    {
     count = 0;
     for (i = 0; i < size; i++)
     {
@@ -195,12 +202,17 @@ int main(int argc, char*argv[])
             count++;
         }
     }
-        
+    MPI_Reduce (&count, &global_count, 1, MPI_INT, MPI_SUM,0,MPI_COMM_WORLD);
+    elapsed_time += MPI_Wtime();
+    }
+    else
+    {
+       MPI_Reduce (&tempCount, &global_count, 1, MPI_INT, MPI_SUM,0,MPI_COMM_WORLD);
+       elapsed_time += MPI_Wtime(); 
+    }
 //    cout << "For " << low_value << "-" << high_value << " there are " << count << " primes" << endl;
 
 
-    MPI_Reduce (&count, &global_count, 1, MPI_INT, MPI_SUM,0,MPI_COMM_WORLD);
-    elapsed_time += MPI_Wtime();
     if (!id)
     {
         cout << (global_count+1) << " primes are less than or equal to " << n*2 << endl;
