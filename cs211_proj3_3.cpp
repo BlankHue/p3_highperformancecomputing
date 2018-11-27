@@ -150,7 +150,7 @@ int main(int argc, char*argv[])
     prime = 3;
     index = 0;
     low_value_block = low_value;
-    high_value_block = low_value + block_size;
+    high_value_block = low_value + (block_size*2);
    do
    {
     do 
@@ -172,7 +172,7 @@ int main(int argc, char*argv[])
             }
         }
            
-        for (i = (first/2) + (low_value_block/2) - 3; i < block_size; i += prime) //added first - 2 (orig. i = first)
+        for (i = (first/2) + (low_value_block/2); i < block_size; i += prime) //added first - 2 (orig. i = first)
         {  
             if((low_value_block + (i*2)) % prime == 0)
             {
@@ -195,7 +195,7 @@ int main(int argc, char*argv[])
     } while (prime * prime <= high_value_block);
      index = 0;
      low_value_block = high_value_block;
-     high_value_block += block_size;
+     high_value_block += (block_size*2);
      if(high_value_block > high_value)
      {
         high_value_block = high_value;
